@@ -1,2 +1,4 @@
 hello-rust/target/*
+day1/target/*
 *Cargo.lock*
+*.swp
