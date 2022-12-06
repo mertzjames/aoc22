@@ -32,8 +32,11 @@ fn main() {
     if let Ok(lines) = read_lines(input_path) {
         for line in lines {
             if let Ok(ip) = line {
-                let picks = ip.split_whitespace();
-                if picks[0]
+                let pick = ip.split(" ").collect::<Vec<&str>>();
+                match beats.get(&pick[0]) {
+                    Some(&beat) => println!("test {beat}"),
+                    _ => println!("no test")
+                }
             }
         }
     }
