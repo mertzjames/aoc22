@@ -4,6 +4,7 @@ use std::io::{self, BufRead};
 use std::path::Path;
 use std::collections::HashMap;
 
+
 fn main() {
     let args: Vec<String> = env::args().collect();
 
@@ -25,16 +26,21 @@ fn main() {
         ("B", "Y"),
         ("C", "Z")
     ]);
-    
 
     let input_path = &args[1];
 
     if let Ok(lines) = read_lines(input_path) {
         for line in lines {
             if let Ok(ip) = line {
+                if ip == "\n" {
+                    break;
+                }
                 let pick = ip.split(" ").collect::<Vec<&str>>();
                 match beats.get(&pick[0]) {
-                    Some(&beat) => println!("test {beat}"),
+                    Some(&beat) => {
+                        println!("test {beat}");
+                        println!("Another test {beat}");
+                    },
                     _ => println!("no test")
                 }
             }
